@@ -1,0 +1,21 @@
+<h1>{{post.title}}</h1>
+<p>{{post.content}}</p>
+<h3>Comments:</h3>
+{{#each post.comments}}
+  <p>#{{this.id}}: {{this.content}}</p>
+{{/each}}
+<form>
+  <label for='id'>
+    <input type='text' name='id' placeholder='Id'/>
+  </label>
+  <label for='content'>
+    <input type='text' name='content' placeholder='Content'/>
+  </label>
+  <hr/>
+  <button type='submit' name='button-submit'>Comment</button>
+</form>
+<hr/>
+<form>
+  <input type='hidden' name='delete' value='true'/>
+  <button type='submit' name='button-reset'>Delete</button>
+</form>

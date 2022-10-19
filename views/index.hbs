@@ -1,0 +1,33 @@
+<p>POSTS</p>
+<div>
+  {{#each posts}}
+    <div>
+      <a href="{{this.id}}">#{{this.id}}</a>
+      <span>{{this.title}}</span>
+      <form>
+        <input type='hidden' name='editorMode' value='{{this.id}}'/>
+        <button type='submit' name='button-submit'>EDIT</button>
+      </form>
+      <hr/>
+    </div>
+  {{/each}}
+</div>
+<div>
+  <h1>Add Post</h1>
+  <form>
+    {{#if post}}
+      <input type='hidden' name='editorMode' value='{{post.id}}'/>
+    {{/if}}
+    <label for='id'>
+      <textarea name='id' placeholder='Id'>{{post.id}}</textarea>
+    </label>
+    <label for='title'>
+      <textarea name='title' placeholder='Title'>{{post.title}}</textarea>
+    </label>
+    <label for='post'>
+      <textarea name='content' placeholder='Content'>{{post.content}}</textarea>
+    </label>
+    <hr/>
+    <button type='submit' name='button-submit'>{{#if post}}UPDATE{{/if}}{{#unless post}}ADD{{/unless}}</button>
+  </form>
+</div>
